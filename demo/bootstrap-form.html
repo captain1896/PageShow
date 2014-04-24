@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link href="lib/bootstrap/bootstrap-3.1.1-dist/css/bootstrap.css" rel="stylesheet" media="screen" />
+
+	<script type="text/javascript" src="lib/bootstrap/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
+</head>
+	<body>
+		<!-- 代码片断 -->
+		<form class="form-horizontal well" method="GET">
+			<select name="type" class="selectpicker show-tick" data-size="5">
+				<option>科幻</option>
+				<option>剧情</option>
+				<option>犯罪</option>
+				<option>西部</option>
+				<option>爱情</option>
+			</select>
+		</form>
+
+		<!-- 代码片段 -->
+		<script type="text/javascript">
+		$(function(){
+			//下拉菜单
+			$('.selectpicker').selectpicker({noneSelectedText:'请选择'});
+			$('.selectpicker').selectpicker('val',$('.selectpicker').attr('value'));
+		})
+		</script>
+
+		<div class='input-prepend dropdown' data-select='true'>
+			<a class='add-on dropdown-toggle' data-toggle='dropdown' href='#'>
+				<span class='dropdown-display'>...</span> <i class='caret'></i>
+			</a>
+			<input type='text' />		
+			<input type='hidden' value='...' class='dropdown-field' />		
+			<ul class='dropdown-menu'>
+				<li>
+					<a href='#' data-value='...'>...</a>
+				</li>
+			</ul>
+		</div>
+
+	</body>
+</html>
