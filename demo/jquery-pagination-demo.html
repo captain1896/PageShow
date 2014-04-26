@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery pagination demo</title>
+		<link rel="stylesheet" type="text/css" href="lib/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="lib/js/jquery/plugin/pagination.css">
+		<script type="text/javascript" src="lib/js/jquery/jquery-1.11.0.js"></script>
+		<script type="text/javascript" src="lib/js/jquery/plugin/jquery.pagination.js"></script>
+		<script type="text/javascript">
+		$(function(){
+			var initPagination = function() {
+
+				var cityNumber = $("#cities div.city").length;
+				$("#Pagination").pagination(cityNumber,{
+					num_edge_entries:2,
+					num_display_entries:4,
+					callback:pageSelectClassBack,
+					items_per_page:1,
+					prev_text:"<<上一页",
+					next_text:"下一页>>"
+				});
+				
+			}();
+
+			function pageSelectClassBack(pageIndex,jq) {
+				var selectedCity = $("#cities div.city:eq("+pageIndex+")").clone();
+				$("#cityContainer").empty().append(selectedCity);
+				return false;
+			};
+		});
+
+	</script>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="col-md-6 col-md-offset-4">
+				<h3>
+					<span>
+						jQuery Pagination Demo
+					</span>
+					<small>Lucas In Wonderland</small>
+				</h3>
+				
+				<div id="cities" style="display:none;">
+					<div class="city">1st page-China-ShangHai</div>
+					<div class="city">2ed page-US-NewYork</div>
+					<div class="city">3th page-US-L.A.</div>
+					<div class="city">4th page-UK-London</div>
+					<div class="city">5th page-UK-Scottland</div>
+					<div class="city">6th page-Japan-Tokyo</div>
+					<div class="city">7th page-Japan-Nagoya</div>
+					<div class="city">8th page-Japan-Osaka</div>
+					<div class="city">9th page-Italy-Rome</div>
+					<div class="city">10th page-Italy-Milan</div>
+					<div class="city">11th page-France-Paris</div>
+					<div class="city">12th page-German-Frankfurt</div>
+
+				</div>
+
+				<div class="">selected city:</div>
+
+				<div id="cityContainer" class="">
+					After the Pagination Initialize Completed, this content will be replace by Something.
+				</div>
+
+				<div id="Pagination" class="pagination right"></div>
+			</div>
+		</div>
+
+	</body>
+	
+	
+
+</html>
